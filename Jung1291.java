@@ -1,39 +1,29 @@
-
+package subject;
 
 import java.util.Scanner;
 
 public class Jung1291 {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-
-		int num1 = sc.nextInt();
-		int num2 = sc.nextInt();
-		while (((num1 < 2 || num2 < 2) || (num1 > 9 || num2 > 9))) {
-			System.out.println("INPUT ERROR!");
-			num1 = sc.nextInt();
-			num2 = sc.nextInt();
-		} //í•´ë‹¹ë¶€ë¶„ ì§ˆë¬¸ ë‚´ë¶€ì—ì„œ ìž…ë ¥í•˜ê³ ì„œ ì™œ ìœ„ë¡œ ì˜¬ë¼ê°€ëŠ”ì§€
-
-		if (num1 >= num2) {
-			for (int i = 1; i <= 9; i++) {
-				for (int j = num1; j >= num2; j--) {
-					System.out.printf("%d * %d = %2d   ", j, i, j * i);
+		Scanner sc= new Scanner(System.in);
+		int number1;
+		int number2;
+		
+		while(true) {
+			number1 = sc.nextInt();
+			number2 = sc.nextInt();
+			
+			//±¸±¸´ÜÀÇ Å©±â¸¦ ¹þ¾î³ª¸é while¹® ´Ù½Ã ½ÃÀÛ
+			if((1 > number1 || 9 < number1) || (1 > number2 || 9 < number2)) {
+				System.out.println("INPUT ERROR!");
+			}else {
+				for(int i=1; i<10; i++) {
+					System.out.printf( "%d * %d = %3d" ,number1, i, number1*i);
+					System.out.printf( "%4d * %d = %3d \n" ,number2, i, number2*i);
+					
 				}
-				System.out.println();
+				return;
 			}
-		} else {
-
-			for (int i = 1; i <= 9; i++) {
-				for (int j = num1; j <= num2; j++) {
-					System.out.printf("%d * %d = %2d   ", j, i, j * i);
-
-				}
-				System.out.println();
-			}
-
 		}
-
 	}
-
 }
